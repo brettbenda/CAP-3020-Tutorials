@@ -27,19 +27,8 @@ public class Grabbable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100))
-        {
-            GameObject go = hit.collider.gameObject;
-            Debug.Log(go.name);
-            if (go == gameObject)
-            {
-                grabbed = true;
-                GetComponent<Collider>().enabled = false;
-            }
-            
-        }
+        grabbed = true;
+        GetComponent<Collider>().enabled = false;
     }
 
     public void OnMouseUp()
